@@ -151,3 +151,51 @@ Phone Number:
 SMS Header Info: set667788998 
 SMS Message Body: aap [Always a pleasur [Your / You're]e] aar [At [At your terminal [I'm not a lawyer]] any rate]
 
+
+AreaCode: United Kingdom (+44) 
+Phone Number:  
+SMS Header Info: set123456781 
+SMS Message Body: this is an aap [Always a pleasur [Your / You're]e] and aar [At [At your terminal [I'm not a lawyer]] any rate] test
+
+
+AreaCode: United Kingdom (+44) 
+Phone Number:  
+SMS Header Info: set666677771 
+SMS Message Body: this is an aar [At [At your [Your / You're] terminal [I'm not a lawyer]] any rate] and aap [Always a pleasure] test
+
+
+AreaCode: United Kingdom (+44) 
+Phone Number:  
+SMS Header Info: set123456784 
+SMS Message Body: this is an aar test aap
+
+
+AreaCode: United Kingdom (+44) 
+Phone Number:  
+SMS Header Info:  
+SMS Message Body: 
+
+
+AreaCode: United Kingdom (+44) 
+Phone Number:  
+SMS Header Info:  
+SMS Message Body: 
+
+
+AreaCode: United Kingdom (+44) 
+Phone Number:  
+SMS Header Info:  
+SMS Message Body: 
+
+
+AreaCode: United Kingdom (+44) 
+Phone Number:  
+SMS Header Info: set434343567 
+SMS Message Body: test aap [always a pleasure]
+
+
+AreaCode: United Kingdom (+44) 
+Phone Number:  
+SMS Header Info: set434343567 
+SMS Message Body: this is an aap [always a pleasure] or aar [at any rate] test
+

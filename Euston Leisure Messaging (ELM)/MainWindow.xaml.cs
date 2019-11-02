@@ -829,20 +829,20 @@ namespace Euston_Leisure_Messaging__ELM_
                 //reads all lines of the csv file into a string array
                 string[] lines = System.IO.File.ReadAllLines(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\textwords.csv");
 
-                
+                string upperCaseMessageBody = messageBody;
+                //convert to uppercase
+                upperCaseMessageBody = upperCaseMessageBody.ToUpper();
+
+                int counter = 0;
+
                 //loops until counter is the same length as the string array lines
-                for (int counter =0; counter < lines.Length; counter++)
+                for (counter =0; counter < lines.Length; counter++)
                 {
 
 
                     //takes 1 line from lines
                     string line = lines[counter];
 
-
-                    string upperCaseMessageBody = messageBody;
-
-                    //convert to uppercase
-                    upperCaseMessageBody = upperCaseMessageBody.ToUpper();
 
                     //splits the string on its comma and stores it as string array abbrevation
                     string[] abbrevation = line.Split(',');
@@ -870,13 +870,13 @@ namespace Euston_Leisure_Messaging__ELM_
 
                         //stops code from reading abbrevation from middle of word
                         //abbrevations must have a space before them to be read
-                        if (char.IsWhiteSpace(checkPreviousChar))
+                        if (char.IsWhiteSpace(checkPreviousChar) && upperCaseMessageBody[index] != '[')
                         {
                             var start = upperCaseMessageBody.IndexOf(abbrevation[0]);
                             //finds the next space after the abbrevation
                             int spaceIndex = index + abbrevation[0].Length;
                             //inserts the expanded abbrevation 
-                            messageBody = messageBody.Insert(spaceIndex, " " + "[" + abbrevation[1] + "]");
+                            upperCaseMessageBody = upperCaseMessageBody.Insert(spaceIndex, " " + "[" + abbrevation[1] + "]");
 
                             
                         }
@@ -888,7 +888,7 @@ namespace Euston_Leisure_Messaging__ELM_
                              * we can insert the exanded abbreviation at the end rather than on a space that doesn't exist */
                             int spaceIndex = index + abbrevation[0].Length;
                             //inserts the expanded abbrevation 
-                            messageBody = messageBody.Insert(spaceIndex, " " + "[" + abbrevation[1] + "]");
+                            upperCaseMessageBody = upperCaseMessageBody.Insert(spaceIndex, " " + "[" + abbrevation[1] + "]");
 
                         }
 
@@ -901,6 +901,11 @@ namespace Euston_Leisure_Messaging__ELM_
 
                 }
 
+                if(counter >= messageBody.Length)
+                {
+                    messageBody = upperCaseMessageBody.ToLowerInvariant();
+                    return messageBody;
+                }
                 return messageBody;
 
             }
