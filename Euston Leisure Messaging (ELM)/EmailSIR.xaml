@@ -1,0 +1,44 @@
+﻿<Window x:Class="Euston_Leisure_Messaging__ELM_.EmailSIR"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Euston_Leisure_Messaging__ELM_"
+        mc:Ignorable="d"
+        Title="EmailSIR" Height="392" Width="689.857">
+    <Grid>
+        <Label Content="Significant Incident Reports" HorizontalAlignment="Left" Margin="115,29,0,0" VerticalAlignment="Top" Height="47" Width="289" FontWeight="Bold" FontSize="20"/>
+        <Label Content="Subject:" HorizontalAlignment="Left" Height="50" Margin="87,81,0,0" VerticalAlignment="Top" Width="78" FontStyle="Italic" FontSize="16"/>
+        <Button Content="Add S.I.R report" HorizontalAlignment="Left" Margin="187,267,0,0" VerticalAlignment="Top" Width="128" RenderTransformOrigin="0.5,0.5" Height="53" FontSize="16" Click="Button_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.165"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <ListBox x:Name="DateTimeBox" HorizontalAlignment="Left" Height="36" Margin="170,81,0,0" VerticalAlignment="Top" Width="155"/>
+        <ComboBox x:Name="sirOptions" HorizontalAlignment="Left" Margin="170,188,0,0" VerticalAlignment="Top" Width="155" Height="41">
+            <ComboBoxItem Content="Theft of properties" IsSelected="True"/>
+            <ComboBoxItem Content="Staff Attack"/>
+            <ComboBoxItem Content="Device Damage"/>
+            <ComboBoxItem Content="Raid"/>
+            <ComboBoxItem Content="Customer Attack"/>
+            <ComboBoxItem Content="Staff Abuse"/>
+            <ComboBoxItem Content="Bomb Threat"/>
+            <ComboBoxItem Content="Terrorism"/>
+            <ComboBoxItem Content="Suspicious Incident"/>
+            <ComboBoxItem Content="Sport Injury"/>
+            <ComboBoxItem Content="Personal Info Leak"/>
+        </ComboBox>
+        <Label Content="Select Issue:" HorizontalAlignment="Left" Margin="60,188,0,0" VerticalAlignment="Top" Height="41" Width="90" FontSize="16" FontStyle="Italic"/>
+        <Label Content="Sports Centre Code:" HorizontalAlignment="Left" Margin="-1,131,0,0" VerticalAlignment="Top" FontSize="16" FontStyle="Italic"/>
+        <ComboBox x:Name="sportsCentreCodeBox" HorizontalAlignment="Left" Height="31" Margin="170,131,0,0" VerticalAlignment="Top" Width="155" FontSize="18"/>
+        <Label Content="Add new sports centre code" HorizontalAlignment="Left" Margin="413,81,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <TextBox x:Name="newSCcode" HorizontalAlignment="Left" Height="31" Margin="447,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontSize="16"/>
+        <Button x:Name="btnAddNewSC" Content="Add" HorizontalAlignment="Left" Height="26" Margin="472,170,0,0" VerticalAlignment="Top" Width="105" Click="BtnAddNewSC_Click"/>
+
+    </Grid>
+</Window>

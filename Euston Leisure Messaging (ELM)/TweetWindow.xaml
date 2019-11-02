@@ -1,0 +1,16 @@
+﻿<Window x:Class="Euston_Leisure_Messaging__ELM_.TweetWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Euston_Leisure_Messaging__ELM_"
+        mc:Ignorable="d"
+        Title="TweetWindow" Height="330.992" Width="483.38">
+    <Grid>
+        <Label Content="Add Twitter Username" HorizontalAlignment="Left" Margin="139,42,0,0" VerticalAlignment="Top" Height="45" Width="201" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="twitterUserNameInput" HorizontalAlignment="Left" Height="38" Margin="139,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" FontSize="18" Text="@"/>
+        <Button x:Name="btnAddUsername" Content="Add" HorizontalAlignment="Left" Height="39" Margin="186,142,0,0" VerticalAlignment="Top" Width="91" FontSize="20" Click="BtnAddUsername_Click"/>
+        <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Margin="186,233,0,0" VerticalAlignment="Top" Width="91" Height="30" FontSize="18" Click="BtnClose_Click"/>
+
+    </Grid>
+</Window>

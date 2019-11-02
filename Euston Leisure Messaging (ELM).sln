@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Euston Leisure Messaging (ELM)", "Euston Leisure Messaging (ELM)\Euston Leisure Messaging (ELM).csproj", "{D8597837-DE81-424E-AE87-7E5F3AAFCCF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datalayer", "Datalayer\Datalayer.csproj", "{ED517ED0-5991-4116-B60B-35CF4144DA22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessList", "BusinessList\BusinessList.csproj", "{532636D3-D28F-4575-B7B8-96B3E16F5983}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eustom Leisure Messaging.UnitTests", "Eustom Leisure Messaging.UnitTests\Eustom Leisure Messaging.UnitTests.csproj", "{41D655B4-37F2-452C-9957-7985ABC33250}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{D8597837-DE81-424E-AE87-7E5F3AAFCCF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8597837-DE81-424E-AE87-7E5F3AAFCCF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8597837-DE81-424E-AE87-7E5F3AAFCCF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED517ED0-5991-4116-B60B-35CF4144DA22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED517ED0-5991-4116-B60B-35CF4144DA22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED517ED0-5991-4116-B60B-35CF4144DA22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED517ED0-5991-4116-B60B-35CF4144DA22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{532636D3-D28F-4575-B7B8-96B3E16F5983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{532636D3-D28F-4575-B7B8-96B3E16F5983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{532636D3-D28F-4575-B7B8-96B3E16F5983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{532636D3-D28F-4575-B7B8-96B3E16F5983}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41D655B4-37F2-452C-9957-7985ABC33250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41D655B4-37F2-452C-9957-7985ABC33250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41D655B4-37F2-452C-9957-7985ABC33250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41D655B4-37F2-452C-9957-7985ABC33250}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

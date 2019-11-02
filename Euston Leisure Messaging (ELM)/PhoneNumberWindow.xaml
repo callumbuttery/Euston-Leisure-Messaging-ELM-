@@ -1,0 +1,21 @@
+﻿<Window x:Class="Euston_Leisure_Messaging__ELM_.PhoneNumberWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Euston_Leisure_Messaging__ELM_"
+        mc:Ignorable="d"
+        Title="PhoneNumberWindow" Height="450" Width="540.72">
+    <Grid>
+        <Button x:Name="phoneNumberBtn" Content="Enter" HorizontalAlignment="Left" Height="51" Margin="182,251,0,0" VerticalAlignment="Top" Width="145" FontSize="18" Click="PhoneNumberBtn_Click"/>
+        <TextBox x:Name="phoneNumberInput" HorizontalAlignment="Left" Height="36" Margin="269,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" FontSize="16"/>
+        <ComboBox x:Name="areaCodeBox" HorizontalAlignment="Left" Height="36" Margin="78,161,0,0" VerticalAlignment="Top" Width="163">
+            <ComboBoxItem Content="United Kingdom (+44)" IsSelected="True" FontSize="18"/>
+            <ComboBoxItem Content="Australia (+61)" FontSize="18"/>
+            <ComboBoxItem Content="Canada (+1)" FontSize="18"/>
+        </ComboBox>
+        <Label Content="Area Code" HorizontalAlignment="Left" Margin="78,127,0,0" VerticalAlignment="Top" Width="123" FontSize="18"/>
+        <Label Content="Phone Number" HorizontalAlignment="Left" Margin="269,127,0,0" VerticalAlignment="Top" Width="197" FontSize="18"/>
+
+    </Grid>
+</Window>

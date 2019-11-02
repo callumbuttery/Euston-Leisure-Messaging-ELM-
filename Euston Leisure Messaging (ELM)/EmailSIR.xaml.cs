@@ -1,0 +1,95 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace Euston_Leisure_Messaging__ELM_
+{
+    /// <summary>
+    /// Interaction logic for EmailSIR.xaml
+    /// </summary>
+    public partial class EmailSIR : Window
+    {
+        public EmailSIR()
+        {
+            InitializeComponent();
+
+            //added in this part of code so the date is displayed in the last box when the window opens
+            //sets dt to current date
+            DateTime dt = DateTime.Now.Date;
+            //converts dt time to string
+            dt.ToString();
+            //adds dt to listbox
+            DateTimeBox.Items.Add("S.I.R:   " + dt.ToShortDateString());
+
+            string[] lineOfContents = File.ReadAllLines(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\comboboxitems.txt");
+
+            foreach(var line in lineOfContents)
+            {
+                sportsCentreCodeBox.Items.Add(line);
+            }
+
+            sportsCentreCodeBox.Text = "11-111-111";
+
+           
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string sportsCentreCode = sportsCentreCodeBox.SelectedItem.ToString();
+            this.Close();
+
+        }
+
+        private void BtnAddNewSC_Click(object sender, RoutedEventArgs e)
+        {
+            //stores sports centre code input
+            string sportsCentreCode = newSCcode.Text;
+
+            /*if the input is equal to 10 then we have a perfect input size so enter if
+             * if the size is smaller than 10 this means we will have null vals which will
+             * crash the program when trying to assign positions to chars */
+            if (sportsCentreCode.Length == 10)
+            {
+                char number1 = sportsCentreCode[0];
+                char number2 = sportsCentreCode[1];
+
+                char dash1 = sportsCentreCode[2];
+                char dashtype = '-';
+
+                char number3 = sportsCentreCode[3];
+                char number4 = sportsCentreCode[4];
+                char number5 = sportsCentreCode[5];
+
+                char dash2 = sportsCentreCode[6];
+
+
+                char number6 = sportsCentreCode[7];
+                char number7 = sportsCentreCode[8];
+                char number8 = sportsCentreCode[9];
+
+                //if length is bigger than 10 or any char is a letter then we have invalid input
+                while (sportsCentreCode.Length > 10 | char.IsLetter(number1) | char.IsLetter(number2) | dash1 != dashtype | char.IsLetter(number3) | char.IsLetter(number4) | char.IsLetter(number5) | dash2 != dashtype | char.IsLetter(number6) | char.IsLetter(number7) | char.IsLetter(number8))
+                {
+                    //return the user to re-enter correctly
+                    MessageBox.Show("Please ensure your sports centre code is smaller than 9 chars and in this format 'NN-NN-NNN including dashes'");
+                    return;
+                }
+
+                sportsCentreCodeBox.Items.Add(sportsCentreCode);
+                File.AppendAllText(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\comboboxitems.txt", sportsCentreCode);
+            }
+        }
+    }
+}
