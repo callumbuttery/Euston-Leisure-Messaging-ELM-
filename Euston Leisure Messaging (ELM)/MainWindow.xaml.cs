@@ -856,11 +856,15 @@ namespace Euston_Leisure_Messaging__ELM_
 
                         int checkPreviousIndex = 0;
                         char checkPreviousChar = ' ';
+                        //string checkCharAfterAbbrev;
+                        //int abbrevlength = 0;
 
                         //if index is below 0 then it is outside the array boundaries causing crash
                         if (index != 0)
                         {
                             checkPreviousIndex = index - 1;
+                            //abbrevlength == abbrevlength[0].length;
+                            checkCharAfterAbbrev = abbrevation[0];
                         }
                         //index inside array boundaries meaning we can store the char at any position without crash
                         else
@@ -870,7 +874,7 @@ namespace Euston_Leisure_Messaging__ELM_
 
                         //stops code from reading abbrevation from middle of word
                         //abbrevations must have a space before them to be read
-                        if (char.IsWhiteSpace(checkPreviousChar) && upperCaseMessageBody[index] != '[')
+                        if (char.IsWhiteSpace(checkPreviousChar) && upperCaseMessageBody[index] != '[' && Char.IsWhiteSpace(checkCharAfterAbbrev))
                         {
                             var start = upperCaseMessageBody.IndexOf(abbrevation[0]);
                             //finds the next space after the abbrevation
