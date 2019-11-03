@@ -35,7 +35,8 @@ namespace Euston_Leisure_Messaging__ELM_
 
         string messageHeader = "";
         string messageBody = "";
-      
+
+
 
         /*var used to prevent relooping
          * i.e. if the user has correctly entered the subject correctly
@@ -77,7 +78,7 @@ namespace Euston_Leisure_Messaging__ELM_
             messageBody = messageBodyInput.Text;
             messageHeader = headerInput.Text;
 
-            if (messageHeader.Length != 12 || messageBody == null)
+            if (messageHeader.Length != 12 || messageBody == null || messageBody == "")
             {
                 MessageBox.Show("Please ensure your head length is 12 chars long and your message body isn't null");
                 return;
@@ -116,8 +117,16 @@ namespace Euston_Leisure_Messaging__ELM_
                     selectedEmailType = ((ComboBoxItem)emailWin.comboOptions.SelectedItem).Content.ToString();
                     subject = emailWin.subjectInput.Text;
 
+                    //holds the sports centre code value
+                    string[] codeContents = File.ReadAllLines(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\codeBoxSelection.txt");
+
                     //all info from emailWinSIR window
-                    sportsCentreCode = emailWinSIR.sportsCentreCodeBox.SelectedItem.ToString();
+                    //get sports centre code from array position 0
+                    sportsCentreCode = codeContents[0];
+                    //clear all values in the text file so it is blank for the next SIR email
+                    File.WriteAllText(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\codeBoxSelection.txt", String.Empty);
+
+
                     emailWinSIR.Close();
                     natureOfSIR = ((ComboBoxItem)emailWinSIR.sirOptions.SelectedItem).Content.ToString();
                     dt = DateTime.Now.ToShortDateString();
@@ -146,8 +155,10 @@ namespace Euston_Leisure_Messaging__ELM_
         }
 
 
+        
 
 
+        
 
         //code connects to add tweet button
         private void AddTweet_Click(object sender, RoutedEventArgs e)
@@ -156,7 +167,7 @@ namespace Euston_Leisure_Messaging__ELM_
             messageBody = messageBodyInput.Text;
             messageHeader = headerInput.Text;
 
-            if (messageHeader.Length != 12 || messageBody == null)
+            if (messageHeader.Length != 12 || messageBody == null || messageBody == "")
             {
                 MessageBox.Show("Please ensure your head length is 12 chars long and your message body isn't null");
                 return;
@@ -216,7 +227,7 @@ namespace Euston_Leisure_Messaging__ELM_
             messageBody = messageBodyInput.Text;
             messageHeader = headerInput.Text;
 
-            if(messageHeader.Length != 12 || messageBody == null)
+            if(messageHeader.Length != 12 || messageBody == null || messageBody == "")
             {
                 MessageBox.Show("Please ensure your head length is 12 chars long and your message body isn't null");
                 return;

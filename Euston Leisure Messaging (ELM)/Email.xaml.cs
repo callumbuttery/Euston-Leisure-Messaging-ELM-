@@ -31,6 +31,8 @@ namespace Euston_Leisure_Messaging__ELM_
             //module call
             emailVal();
 
+            this.Hide();
+
         }
 
 
@@ -82,7 +84,6 @@ namespace Euston_Leisure_Messaging__ELM_
                         emailWinSIR.ShowDialog();
                     
 
-                        this.Close();
                     }
                     else
                     {

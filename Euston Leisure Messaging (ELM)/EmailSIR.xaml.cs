@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static Euston_Leisure_Messaging__ELM_.MainWindow;
 
 namespace Euston_Leisure_Messaging__ELM_
 {
@@ -20,6 +21,7 @@ namespace Euston_Leisure_Messaging__ELM_
     /// </summary>
     public partial class EmailSIR : Window
     {
+
         public EmailSIR()
         {
             InitializeComponent();
@@ -39,18 +41,38 @@ namespace Euston_Leisure_Messaging__ELM_
                 sportsCentreCodeBox.Items.Add(line);
             }
 
-            sportsCentreCodeBox.Text = "11-111-111";
 
            
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Button_Click(object sender, RoutedEventArgs e)
         {
-            string sportsCentreCode = sportsCentreCodeBox.SelectedItem.ToString();
-            this.Close();
+
+            //if combo box isn't null, means user has selected a value so we can close window
+            if(sportsCentreCodeBox.SelectedItem != null)
+            {
+
+                string sportsCentreCode = sportsCentreCodeBox.SelectedItem.ToString();
+
+                /*writes the sports centre code to txt file
+                 *1) once emailSIR was closed or hidden sportsCentreCodeBox.SelectedItem became null once again
+                 *2) passing parameters also had the above issue so easier to write to file then read it in again later */
+                File.WriteAllText(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\codeBoxSelection.txt", sportsCentreCodeBox.SelectedItem.ToString());
+                this.Hide();
+
+
+            }
+            else
+            {
+                //tell user to selected a sports centre code
+                MessageBox.Show("Please select a sports centre code");
+            }
+
+
 
         }
+
 
         private void BtnAddNewSC_Click(object sender, RoutedEventArgs e)
         {
@@ -60,7 +82,7 @@ namespace Euston_Leisure_Messaging__ELM_
             /*if the input is equal to 10 then we have a perfect input size so enter if
              * if the size is smaller than 10 this means we will have null vals which will
              * crash the program when trying to assign positions to chars */
-            if (sportsCentreCode.Length == 10)
+                if (sportsCentreCode.Length == 10)
             {
                 char number1 = sportsCentreCode[0];
                 char number2 = sportsCentreCode[1];
@@ -91,5 +113,6 @@ namespace Euston_Leisure_Messaging__ELM_
                 File.AppendAllText(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\comboboxitems.txt", sportsCentreCode);
             }
         }
+
     }
 }

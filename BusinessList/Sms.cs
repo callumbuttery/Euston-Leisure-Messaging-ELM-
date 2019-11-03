@@ -116,7 +116,7 @@ namespace BusinessList
 
         public bool headerAdded(HeaderInfo headerinfo)
         {
-            string headerLoaded = "This is a test message";
+            string headerLoaded = "set123456789";
             if (headerLoaded != null)
                 return true;
 
@@ -125,8 +125,8 @@ namespace BusinessList
 
         public bool headerNotAdded(HeaderInfo headerinfo)
         {
-            string headerNotLoaded = null;
-            if (headerNotLoaded == null)
+            string headerNotLoaded = "set12345678910";
+            if (headerNotLoaded.Length > 9)
                 return false;
 
             return true;
@@ -139,7 +139,7 @@ namespace BusinessList
         public bool messageBodyAdded(MessageBodyInfo messagebodyinfo)
         {
             string messagebodyloaded = "This is a test message body";
-            if (messagebodyloaded != null)
+            if (messagebodyloaded.Length < 1028)
                 return true;
 
             return false;
