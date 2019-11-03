@@ -30,7 +30,7 @@ namespace Euston_Leisure_Messaging__ELM_
             string check = twitterUserNameInput.Text;
             string checkIndex = check.Substring(0, 1);
             //checks that the user has enter the id in the correct format
-            if(!checkIndex.Contains("@") | check.Length > 15 | check.Length < 1)
+            if(!checkIndex.Contains("@") | check.Length > 15 | check.Length < 2)
             {
                 //returns user to re-enter input in correct format
                 MessageBox.Show("Please enter in correct format: \n\n1) Starts with @ sign \n2)Max size of 15 chars \n3)Minimum size of 2 chars");

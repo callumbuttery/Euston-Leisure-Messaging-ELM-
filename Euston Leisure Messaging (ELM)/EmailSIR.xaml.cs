@@ -55,10 +55,15 @@ namespace Euston_Leisure_Messaging__ELM_
 
                 string sportsCentreCode = sportsCentreCodeBox.SelectedItem.ToString();
 
+                //need to store the direct value of the combo box to prevent it from storing "System.Windows.Controls.ComboBoxItem: Bomb Threat";
+                var item = (ComboBoxItem)sirOptions.SelectedItem;
+                string incident = (string)item.Content;
+
                 /*writes the sports centre code to txt file
                  *1) once emailSIR was closed or hidden sportsCentreCodeBox.SelectedItem became null once again
                  *2) passing parameters also had the above issue so easier to write to file then read it in again later */
                 File.WriteAllText(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\codeBoxSelection.txt", sportsCentreCodeBox.SelectedItem.ToString());
+                File.WriteAllText(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\incidentReport.txt", incident);
                 this.Hide();
 
 

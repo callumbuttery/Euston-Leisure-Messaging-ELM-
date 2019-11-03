@@ -26,6 +26,8 @@ namespace Euston_Leisure_Messaging__ELM_
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {
+
+            
             this.Close();
         }
     }

@@ -120,11 +120,14 @@ namespace Euston_Leisure_Messaging__ELM_
                     //holds the sports centre code value
                     string[] codeContents = File.ReadAllLines(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\codeBoxSelection.txt");
 
+                    //holds the incident report contents
+                    string[] incidentContents = File.ReadAllLines(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\incidentReport.txt");
 
 
-                    //all info from emailWinSIR window
-                    //if codeContent.Length is 0 then the file is blank so we cannot assign the sports centre code 
-                    if (new FileInfo(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\codeBoxSelection.txt").Length !=0)
+
+                //all info from emailWinSIR window
+                //if codeContent.Length is 0 then the file is blank so we cannot assign the sports centre code 
+                if (new FileInfo(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\codeBoxSelection.txt").Length !=0)
                     {
                         //get sports centre code from array position 0
                         sportsCentreCode = codeContents[0];
@@ -138,8 +141,21 @@ namespace Euston_Leisure_Messaging__ELM_
                     File.WriteAllText(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\codeBoxSelection.txt", String.Empty);
 
 
+                     //if txt file length is 0 then the file is blank so we cannot assign to nature of SIR as it will cause crash
+                    if (new FileInfo(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\incidentReport.txt").Length != 0)
+                    {
+
+                        natureOfSIR = incidentContents[0];
+                    }
+                    else
+                    {
+                        natureOfSIR = "N/A";
+                    }
+                    //clear all values in the text file so it is blank for the next SIR email
+                    File.WriteAllText(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\incidentReport.txt", String.Empty);
+
                     emailWinSIR.Close();
-                    natureOfSIR = ((ComboBoxItem)emailWinSIR.sirOptions.SelectedItem).Content.ToString();
+
                     dt = DateTime.Now.ToShortDateString();
 
 
@@ -1070,7 +1086,7 @@ namespace Euston_Leisure_Messaging__ELM_
             using (StreamReader sr = new StreamReader(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\AllInfo.txt"))
             {
 
-                
+                bool checkForNoSlash = false;
                 string line = null;
                 //clear email box to allow us to display sir info to screen
                 gatherEmailsListBox.Items.Clear();
@@ -1078,17 +1094,24 @@ namespace Euston_Leisure_Messaging__ELM_
                 //loops while the line isn't null
                 while ((line = sr.ReadLine()) != null)
                 {
+
                     
-                    //if line contains date then we add it to the email list box
-                    if (line.Contains("Date"))
+                    //if line contains nature of incident then we add it to the email list box
+                    //it cannot have a / in the line as this means an N/A value has been entered by a standard email message
+                    //so a SIR didn't actually happen but was added anyway
+                    if (line.Contains("Nature of incident") && !line.Contains("/"))
                     {
                         gatherEmailsListBox.Items.Add(line);
+                        checkForNoSlash = true;
+
                     }
 
                     //if line contains nature of incident then we display it to the email list box
-                    if(line.Contains("Nature of incident"))
+                    if (line.Contains("Date") && checkForNoSlash == true)
                     {
                         gatherEmailsListBox.Items.Add(line);
+                        checkForNoSlash = false;
+
                     }
 
                 }

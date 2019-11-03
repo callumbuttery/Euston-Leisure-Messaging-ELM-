@@ -35,3 +35,31 @@ Sports Centre Code: N/A
 Nature of incident: N/A 
 Date: 03/11/2019
 
+
+
+TwitterID: @callum 
+Tweet Header Info: set123456785 
+Tweet Message Body: test
+
+
+Sender Email: callum@callum.com 
+Email Recipent: callum@callum.com 
+Email Header Info: set123456786 
+Email Message Body: this is a test 
+Email Type: S.I.R 
+Email Subject: test 
+Sports Centre Code: N/A 
+Nature of incident: System.Windows.Controls.ComboBoxItem: Bomb Threat 
+Date: 03/11/2019
+
+
+Sender Email: callum@callum.com 
+Email Recipent: callum@callum.com 
+Email Header Info: set123456785 
+Email Message Body: this is a test 
+Email Type: S.I.R 
+Email Subject: test 
+Sports Centre Code: 77-555-444 
+Nature of incident: Bomb Threat 
+Date: 03/11/2019
+
