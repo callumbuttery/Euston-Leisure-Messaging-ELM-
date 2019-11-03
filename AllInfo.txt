@@ -24,3 +24,14 @@ Sports Centre Code: 99-999-999
 Nature of incident: Theft of properties 
 Date: 03/11/2019
 
+
+Sender Email: test@test.com 
+Email Recipent: test@test.com 
+Email Header Info: set123456784 
+Email Message Body: this is a standard email test 
+Email Type: Standard Email Message 
+Email Subject: test 
+Sports Centre Code: N/A 
+Nature of incident: N/A 
+Date: 03/11/2019
+

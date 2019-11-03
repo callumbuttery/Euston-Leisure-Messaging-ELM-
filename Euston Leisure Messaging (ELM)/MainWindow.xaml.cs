@@ -120,9 +120,20 @@ namespace Euston_Leisure_Messaging__ELM_
                     //holds the sports centre code value
                     string[] codeContents = File.ReadAllLines(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\codeBoxSelection.txt");
 
+
+
                     //all info from emailWinSIR window
-                    //get sports centre code from array position 0
-                    sportsCentreCode = codeContents[0];
+                    //if codeContent.Length is 0 then the file is blank so we cannot assign the sports centre code 
+                    if (new FileInfo(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\codeBoxSelection.txt").Length !=0)
+                    {
+                        //get sports centre code from array position 0
+                        sportsCentreCode = codeContents[0];
+                    }
+                    //assign sports centre code to N/A as the file is blank e.g. meaning the last type of email entered was a standard email which doesn't output a sports centre code to the file
+                    else
+                    {
+                        sportsCentreCode = "N/A";
+                    }
                     //clear all values in the text file so it is blank for the next SIR email
                     File.WriteAllText(@"J:\Uni\Year 3\Software Development\Coursework\OFFICIAL\Euston Leisure Messaging (ELM)\codeBoxSelection.txt", String.Empty);
 
